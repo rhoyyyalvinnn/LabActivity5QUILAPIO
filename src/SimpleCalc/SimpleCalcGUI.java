@@ -1,7 +1,7 @@
 package SimpleCalc;
 
 import LeapYear.LeapYearGUI;
-
+import java.util.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +23,26 @@ public class SimpleCalcGUI extends JFrame{
         simpleCalcGUI.setTitle("Simple Calculator");
     }
 
+    public int sum(){
+        int num1 = Integer.parseInt(tfNumber1.getText());
+        int num2 = Integer.parseInt(tfNumber2.getText());
+        int sum = num1+num2;
+        return sum;
+    }
+
+    public int diff(){
+        int num1 = Integer.parseInt(tfNumber1.getText());
+        int num2 = Integer.parseInt(tfNumber2.getText());
+        int diff = num1-num2;
+        return diff;
+    }
+
+    public int prod(){
+        int num1 = Integer.parseInt(tfNumber1.getText());
+        int num2 = Integer.parseInt(tfNumber2.getText());
+        int prod = num1*num2;
+        return prod;
+    }
 
     public SimpleCalcGUI(){
 
@@ -31,23 +51,15 @@ public class SimpleCalcGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(cbOperations.getSelectedItem() == "+")
                 {
-                    int num1 = Integer.parseInt(tfNumber1.getText());
-                    int num2 = Integer.parseInt(tfNumber2.getText());
-                    int sum = num1+num2;
-                    lblResult.setText(String.valueOf(sum));
+                    lblResult.setText(String.valueOf(sum()));
                 } else if(cbOperations.getSelectedItem() == "-")
                 {
-                    int num1 = Integer.parseInt(tfNumber1.getText());
-                    int num2 = Integer.parseInt(tfNumber2.getText());
-                    int diff = num1-num2;
-                    lblResult.setText(String.valueOf(diff));
+                    lblResult.setText(String.valueOf(diff()));
                 } else if(cbOperations.getSelectedItem() == "*")
                 {
-                    int num1 = Integer.parseInt(tfNumber1.getText());
-                    int num2 = Integer.parseInt(tfNumber2.getText());
-                    int prod = num1*num2;
-                    lblResult.setText(String.valueOf(prod));
-                } else if(cbOperations.getSelectedItem() == "/")
+                    lblResult.setText(String.valueOf(prod()));
+                }
+                else if(cbOperations.getSelectedItem() == "/")
                 {
 
                     double num1 = Double.parseDouble(tfNumber1.getText());
@@ -58,9 +70,9 @@ public class SimpleCalcGUI extends JFrame{
                         double quotient = num1/num2;
                         lblResult.setText(String.valueOf(quotient));
                     }
-
                 }
             }
         });
     }
 }
+
