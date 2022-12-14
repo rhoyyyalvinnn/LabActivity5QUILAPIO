@@ -20,7 +20,7 @@ public class LeapYearGUI extends JFrame{
 
 
         public int LeapYearChecker () {
-
+            try {
                 int year = Integer.parseInt(tfYear.getText());
 
                 if (year % 4 == 0 && year % 100 != 0) {
@@ -31,6 +31,9 @@ public class LeapYearGUI extends JFrame{
                     return 1;
                 }
                 return 0;
+            }catch (Exception e){
+                return 3;
+            }
     }
 
     public LeapYearGUI() {
