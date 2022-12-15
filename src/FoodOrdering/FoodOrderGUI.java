@@ -61,7 +61,6 @@ public class FoodOrderGUI extends JFrame{
     }
 
 
-
     public int amountPaid(){
         int amountpaid = 0;
         if(cPizza.isSelected()){
